@@ -1,6 +1,5 @@
-from src.game import TicTacToe, ConnectFour
-from src.model import ResNet
-from src.mcts import MCTS
+from src.games import TicTacToe, ConnectFour
+from src.agent import ResNet, MCTS
 import numpy as np
 import torch
 

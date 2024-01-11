@@ -1,6 +1,5 @@
-from src.alpha_zero import AlphaZero
-from src.game import TicTacToe, ConnectFour
-from src.model import ResNet
+from src.agent import AlphaZero, ResNet
+from src.games import TicTacToe, ConnectFour
 import torch
 
 

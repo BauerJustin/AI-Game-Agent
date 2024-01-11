@@ -3,7 +3,7 @@ import random
 from tqdm import trange
 import torch
 import torch.nn.functional as F
-from src.mcts import MCTS
+from .mcts import MCTS
 
 
 class AlphaZero:
