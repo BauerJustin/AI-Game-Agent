@@ -4,6 +4,7 @@ from tqdm import trange
 import torch
 import torch.nn.functional as F
 from .mcts import MCTS
+from config import GAME
 
 
 class AlphaZero:
@@ -79,5 +80,5 @@ class AlphaZero:
             for _ in trange(self.args['num_epochs']):
                 self.train(memory)
             
-            torch.save(self.model.state_dict(), f"models/model_{i}_{self.game}.pt")
+            torch.save(self.model.state_dict(), f"models/model_{GAME}.pt")
             

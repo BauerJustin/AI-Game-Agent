@@ -1,0 +1,1 @@
+GAME = 'TicTacToe'  # TicTacToe, ConnectFour

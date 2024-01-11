@@ -1,11 +1,17 @@
 from src.games import TicTacToe, ConnectFour
 from src.agent import ResNet, MCTS
+from config import GAME
 import numpy as np
 import torch
 
 
 def main():
-    game = TicTacToe()
+    if GAME == "TicTacToe":
+        game = TicTacToe()
+    elif GAME == "ConnectFour":
+        game = ConnectFour()
+    else:
+        raise Exception(f"Invalid GAME type: {GAME}")
     player = 1
 
     args = {
@@ -18,7 +24,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model = ResNet(game, 4, 64, device)
-    model.load_state_dict(torch.load("models/model_TicTacToe.pt", map_location=device))
+    model.load_state_dict(torch.load(f"models/model_{GAME}.pt", map_location=device))
     model.eval()
 
     mcts = MCTS(game, args, model)

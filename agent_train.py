@@ -1,10 +1,16 @@
 from src.agent import AlphaZero, ResNet
 from src.games import TicTacToe, ConnectFour
+from config import GAME
 import torch
 
 
 def main():
-    game = TicTacToe()
+    if GAME == "TicTacToe":
+        game = TicTacToe()
+    elif GAME == "ConnectFour":
+        game = ConnectFour()
+    else:
+        raise Exception(f"Invalid GAME type: {GAME}")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
