@@ -1,4 +1,4 @@
-from alpha_zero import AlphaZero
+from src.alpha_zero import AlphaZero
 from src.game import TicTacToe, ConnectFour
 from src.model import ResNet
 import torch
@@ -9,7 +9,7 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = ResNet(game, 9, 128, device)
+    model = ResNet(game, 4, 64, device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 

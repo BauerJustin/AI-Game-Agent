@@ -32,7 +32,7 @@ class ResNet(nn.Module):
         self.to(self.device)
         
     def forward(self, x):
-        x = self.start_bock(x)
+        x = self.start_block(x)
         for res_block in self.back_bone:
             x = res_block(x)
         policy = self.policy_head(x)

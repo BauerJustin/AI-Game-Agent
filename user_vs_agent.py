@@ -18,8 +18,8 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = ResNet(game, 9, 128, device)
-    model.load_state_dict(torch.load("model.pt", map_location=device))
+    model = ResNet(game, 4, 64, device)
+    model.load_state_dict(torch.load("models/model_TicTacToe.pt", map_location=device))
     model.eval()
 
     mcts = MCTS(game, args, model)
