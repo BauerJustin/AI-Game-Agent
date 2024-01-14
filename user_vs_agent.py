@@ -1,6 +1,6 @@
 from src.games import TicTacToe, ConnectFour
 from src.agent import ResNet, MCTS
-from config import GAME
+from config import GAME, NUM_RES_BLOCKS, NUM_HIDDEN_UNITS
 import numpy as np
 import torch
 
@@ -23,7 +23,7 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = ResNet(game, 4, 64, device)
+    model = ResNet(game, NUM_RES_BLOCKS, NUM_HIDDEN_UNITS, device)
     model.load_state_dict(torch.load(f"models/model_{GAME}.pt", map_location=device))
     model.eval()
 

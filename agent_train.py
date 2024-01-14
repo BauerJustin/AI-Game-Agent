@@ -1,6 +1,6 @@
 from src.agent import AlphaZero, ResNet
 from src.games import TicTacToe, ConnectFour
-from config import GAME
+from config import GAME, NUM_RES_BLOCKS, NUM_HIDDEN_UNITS
 import torch
 
 
@@ -14,7 +14,7 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = ResNet(game, 4, 64, device)
+    model = ResNet(game, NUM_RES_BLOCKS, NUM_HIDDEN_UNITS, device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0001)
 
